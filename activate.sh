@@ -33,6 +33,7 @@ AUTOENV_ENV_FILENAME="${AUTOENV_ENV_FILENAME:-.env}"
 AUTOENV_ENV_LEAVE_FILENAME="${AUTOENV_ENV_LEAVE_FILENAME:-.env.leave}"
 : ${AUTOENV_VIEWER:=}
 # AUTOENV_ENABLE_LEAVE
+# AUTOENV_VERBOSE
 
 __autoenv_use_color() {
 	if [ ${NO_COLOR+x} ]; then
@@ -250,6 +251,10 @@ autoenv_source() {
 	*a*) ;;
 	*) \set -a; local __autoenv_set_allexport=yes ;;
 	esac
+
+	if [ -n "${AUTOENV_VERBOSE:-}" ]; then
+		_autoenv_print 'autoenv' 36 "Sourcing ${1}\n"
+	fi
 
 	# shellcheck disable=SC1090
 	. "${1}"

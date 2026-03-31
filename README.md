@@ -151,6 +151,7 @@ _Before_ `source`ing `activate.sh`, you can set the following variables:
 - `AUTOENV_ASSUME_YES`: Set this variable to a non-empty string to silently authorize the initialization of new environments
 - `AUTOENV_VIEWER`: Program used to display env files prior to authorization; defaults to `cat`
 - `AUTOENV_PRESERVE_CD`: Set this variable to a non-empty string to prevent the `cd` builtin from being overridden (to active autoenv, you must invoke `autoenv_init` within a `cd` function of your own)
+- `AUTOENV_VERBOSE`: Set this variable to a non-empty string to print a message each time a file is sourced
 
 We recommend setting the following configuration variables:
 
